@@ -32,7 +32,7 @@ FROM base as build
 
 SHELL ["/bin/bash", "-c"]
 
-WORKDIR /eliza
+WORKDIR /spot-woz
 COPY . ./
 
 RUN make clean
@@ -44,11 +44,11 @@ RUN make build
 
 # To build a specfic stage only use the --target option, e.g.:
 # docker build --target build --tag build:0.0.1 .
-FROM base as eliza
+FROM base as spotwoz
 
-COPY --from=build /eliza/cltl-eliza-app /eliza/cltl-eliza-app/
+COPY --from=build /spot-woz/spot-woz /spot-woz/spot-woz/
 
-WORKDIR /eliza/cltl-eliza-app
+WORKDIR /spot-woz/spot-woz
 
-WORKDIR /eliza/cltl-eliza-app/py-app
-CMD source /eliza/cltl-eliza-app/venv/bin/activate && python app.py
+WORKDIR /spot-woz/spot-woz/py-app
+CMD source /spot-woz/spot-woz/venv/bin/activate && python app.py
