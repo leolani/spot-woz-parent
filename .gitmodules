@@ -46,3 +46,6 @@
 	path = cltl-emissor-data
 	url = https://github.com/leolani/cltl-emissor-data.git
 	branch = main
+[submodule "spot-woz"]
+	path = spot-woz
+	url = https://github.com/leolani/spot-woz.git
