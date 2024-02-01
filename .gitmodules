@@ -49,3 +49,11 @@
 [submodule "spot-woz"]
 	path = spot-woz
 	url = https://github.com/leolani/spot-woz.git
+[submodule "spot_dialogmanagement"]
+	path = spot_dialogmanagement
+	url = https://github.com/jaapkruijt/spot_dialogmanagement.git
+	branch = main
+[submodule "spot_disambiguation_model"]
+	path = spot_disambiguation_model
+	url = https://github.com/jaapkruijt/spot_disambiguation_model.git
+	branch = main
