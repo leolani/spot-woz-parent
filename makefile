@@ -13,6 +13,8 @@ project_components = $(addprefix ${project_root}/, \
 		cltl-emissor-data \
 		cltl-vad \
                 cltl-asr \
+                spot_dialogmanagement \
+                spot_disambiguation_model \
                 spot-woz)
 
 git_local ?= ..
