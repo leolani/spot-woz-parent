@@ -57,3 +57,7 @@
 	path = spot_disambiguation_model
 	url = https://github.com/jaapkruijt/spot_disambiguation_model.git
 	branch = main
+[submodule "cltl-support"]
+	path = cltl-support
+	url = https://github.com/leolani/cltl-support.git
+	branch = main
