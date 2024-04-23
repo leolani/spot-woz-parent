@@ -49,6 +49,6 @@ FROM base as spotwoz
 COPY --from=build /spot-woz/spot-woz /spot-woz/spot-woz/
 
 WORKDIR /spot-woz/spot-woz/py-app
-RUN echo '#!/bin/bash\n\source /spot-woz/spot-woz/venv/bin/activate\n\python app.py "$@"' > entrypoint.sh && chmod +x entrypoint.sh
+RUN echo -e '#!/bin/bash\nsource /spot-woz/spot-woz/venv/bin/activate\npython app.py "$@"' > entrypoint.sh && chmod +x entrypoint.sh
 
-ENTRYPOINT ["entrypoint.sh"]
+ENTRYPOINT ["./entrypoint.sh"]
