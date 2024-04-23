@@ -24,7 +24,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         ffmpeg \
         libsm6 \
         libxext6 \
-        openjdk-11-jre-headless \
+        default-jre \
     && apt-get clean
 
 
