@@ -24,7 +24,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         ffmpeg \
         libsm6 \
         libxext6 \
-        openjdk-11-jre-headless \
+        default-jre \
     && apt-get clean
 
 
@@ -51,4 +51,5 @@ COPY --from=build /spot-woz/spot-woz /spot-woz/spot-woz/
 WORKDIR /spot-woz/spot-woz
 
 WORKDIR /spot-woz/spot-woz/py-app
-CMD source /spot-woz/spot-woz/venv/bin/activate && python app.py
+CMD source /spot-woz/spot-woz/venv/bin/activate && timeout 7200 python app.py --participant 1 --name Horst --session 1 --turntaking rohu --conventions yes
+

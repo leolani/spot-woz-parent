@@ -2,10 +2,12 @@ Dockerfile
 .dockerignore
 
 .git
+*/.git
 **/.git
 
 */venv
 */dist
+**/venv
 
 */build
 */dist
