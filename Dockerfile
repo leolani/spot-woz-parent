@@ -14,8 +14,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         unzip \
         cmake \
         gfortran \
-        libblas-dev \
         liblapack-dev \
+        libblas-dev \
         libatlas-base-dev \
         libasound-dev \
         libportaudio2 \
@@ -39,8 +39,6 @@ RUN make clean
 RUN make build
 RUN make build
 
-#RUN make clean & make build & make build
-
 
 # To build a specfic stage only use the --target option, e.g.:
 # docker build --target build --tag build:0.0.1 .
@@ -48,8 +46,11 @@ FROM base as spotwoz
 
 COPY --from=build /spot-woz/spot-woz /spot-woz/spot-woz/
 
-WORKDIR /spot-woz/spot-woz
+RUN /spot-woz/spot-woz/venv/bin/python -c 'from sentence_transformers import SentenceTransformer; SentenceTransformer("distiluse-base-multilingual-cased-v1")'
 
 WORKDIR /spot-woz/spot-woz/py-app
-CMD source /spot-woz/spot-woz/venv/bin/activate && timeout 7200 python app.py --participant 1 --name Horst --session 1 --turntaking rohu --conventions yes
 
+RUN printf '#!/bin/bash\n\nsource /spot-woz/spot-woz/venv/bin/activate\npython app.py "$@"\n' > run.sh
+RUN chmod +x run.sh
+
+ENTRYPOINT ["/spot-woz/spot-woz/py-app/run.sh"]
