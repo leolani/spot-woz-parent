@@ -9,4 +9,4 @@ sed -i.orig "s/matplotlib/# matplotlib/g" cltl-backend/requirements.txt
 sed -i.orig "s/asr\[.+\]/asr/g" spot-woz/requirements.txt
 sed -i.orig "s/vad\[.+\]/vad/g" spot-woz/requirements.txt
 
-cp spot-woz/py-app.config/custom_chat.config custom.config
+cp spot-woz/py-app/config/custom_chat.config custom.config
